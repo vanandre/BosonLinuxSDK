@@ -35,171 +35,209 @@ int main()
 	printf("SUCCESS\n\n");
 
 	// Step 2: Get Camera Serial Number
-	printf("CameraSN: ");
-	uint32_t camera_sn;
-	result = bosonGetCameraSN(&camera_sn);
+	// printf("CameraSN: ");
+	// uint32_t camera_sn;
+	// result = bosonGetCameraSN(&camera_sn);
+	// if (result)
+	// {
+	// 	printf("Failed CameraSN with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("%d \n", camera_sn);
+	// printf("SUCCESS\n\n");
+	//
+	// // Step 3: Set Camera Output to 8-bit or 16-bit
+	// FLR_DVO_TYPE_E currDvoSource;
+	// FLR_DVO_TYPE_E dvo8Bit = FLR_DVO_TYPE_MONO16;
+	// FLR_DVO_TYPE_E dvo16Bit = FLR_DVO_TYPE_MONO8;
+	// result = dvoGetType(&currDvoSource);
+	// printf("Initial DVO Source: ");
+	// if (result)
+	// {
+	// 	printf("Failed DVO with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("Result: 0x%08X -- Value: 0x%08X \n", result, currDvoSource);
+	// printf("Change Source: ");
+	// result = dvoSetType(dvo16Bit);
+	// // result = dvoSetType(dvo8Bit);
+	// if (result)
+	// {
+	// 	printf("Failed DVO with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("0x%08X\n", result);
+	// printf("SUCCESS\n\n");
+	//
+	// // Step 4: Get Camera Software Version
+	// uint32_t major, minor, patch;
+	// printf("SoftwareRev: ");
+	// result = bosonGetSoftwareRev(&major, &minor, &patch);
+	// if (result)
+	// {
+	// 	printf("Failed SoftwareRev with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("%u.%u.%u \n", major,minor,patch);
+	// printf("SUCCESS\n\n");
+	//
+	// // Step 5: Get Sensor Part Number
+	// FLR_BOSON_SENSOR_PARTNUMBER_T part_num;
+	// printf("PartNum: ");
+	// result = bosonGetSensorPN(&part_num);
+	// if (result)
+	// {
+	// 	printf("Failed SensorPN with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf(" \"%s\"", part_num.value);
+	// for (idx=0; idx<sizeof(part_num); idx++)
+	// {
+	// 	uint8_t tempchar = part_num.value[idx];
+	// 	if ( !(idx%16) )
+	// 		printf("\n\t");
+	// 	if (tempchar>=32 && tempchar<=125)
+	// 	{
+	// 		printf(" \"%c\"",tempchar);
+	// 	}
+	// 	else
+	// 	{
+	// 		printf("  %02X",tempchar);
+	// 	}
+	// }
+	// printf("\nSUCCESS\n\n");
+	//
+	// // Step 6: Read data from Camera Flash
+	// uint8_t data[256];
+	// printf("Capture Data[0:255]: ");
+	// //       memReadCapture(index, offset, num_bytes, empty_data_buffer);
+	// result = memReadCapture(0, 0, 256, data);
+	// if (result)
+	// {
+	// 	printf("Failed memRead with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf(" -- ");
+	// for (idx=0; idx<256; idx++)
+	// {
+	// 	if ( !(idx%16) )
+	// 		printf("\n\t");
+	// 	printf("  %02X",data[idx]);
+	// }
+	// printf("\nSUCCESS\n\n");
+	//
+	// // Step 7: Get the current frame count
+	// uint32_t frameNum;
+	// printf("Current Frame Number: ");
+	// result = roicGetFrameCount(&frameNum);
+	// if (result)
+	// {
+	// 	printf("Failed FrameCount with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("%u\n", frameNum);
+	// printf("SUCCESS\n\n");
+	//
+	//
+	// // Step 8: Set FFC Mode to Manual and back again
+	// FLR_BOSON_FFCMODE_E currMode;
+	// FLR_BOSON_FFCMODE_E manualFfcMode = FLR_BOSON_MANUAL_FFC;
+	// FLR_BOSON_FFCMODE_E autoFfcMode = FLR_BOSON_AUTO_FFC;
+	// printf("Current FFCMode: ");
+	// result = bosonGetFFCMode(&currMode);
+	// if (result)
+	// {
+	// 	printf("Failed getFFCMode with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("%d \n", currMode);
+	// printf("FFCMode Changed to: ");
+	// result = bosonSetFFCMode(manualFfcMode);
+	// // result = bosonSetFFCMode(autoFfcMode);
+	// if (result)
+	// {
+	// 	printf("Failed setFFCMode with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("%d \n", manualFfcMode);
+	// printf("Read FFCMode Again: ");
+	// result = bosonGetFFCMode(&currMode);
+	// if (result)
+	// {
+	// 	printf("Failed getFFCMode with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("%d \n", currMode);
+	// printf("SUCCESS\n\n");
+	//
+	// // Step 9: Run a Flat Field Correction on the Camera
+	// // Sidenote: FFC can be manually triggered from any FFCMode
+	// result = bosonRunFFC();
+	// printf("RunFFC: ");
+	// if (result)
+	// {
+	// 	printf("Failed FFC with status 0x%08X, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("0x%08X \n", result);
+	// printf("SUCCESS\n\n");
+	//
+	// // Step 10: Get Gain Mode
+	// printf("Get Gain Mode: ");
+	// FLR_BOSON_GAINMODE_E currGain;
+	// result = bosonGetGainMode(&currGain);
+	// if (result)
+	// {
+	// 	printf("Failed Gain Mode with status %d, exiting.\n",result);
+	// 	Close();
+	// 	return 1;
+	// }
+	// printf("0x%08X \n", currGain);
+	// printf("SUCCESS\n\n");
+
+	// Step 11: Get Lut Mode
+	printf("Get Lut Mode: ");
+	FLR_COLORLUT_ID_E lut_data;
+	result = colorLutGetId(&lut_data);
 	if (result)
 	{
-		printf("Failed CameraSN with status 0x%08X, exiting.\n",result);
+		printf("Failed Lut Mode with status %d, exiting.\n",result);
 		Close();
 		return 1;
 	}
-	printf("%d \n", camera_sn);
+	printf("%d \n", lut_data);
 	printf("SUCCESS\n\n");
 
-	// Step 3: Set Camera Output to 8-bit or 16-bit
-	FLR_DVO_TYPE_E currDvoSource;
-	FLR_DVO_TYPE_E dvo8Bit = FLR_DVO_TYPE_MONO16;
-	FLR_DVO_TYPE_E dvo16Bit = FLR_DVO_TYPE_MONO8;
-	result = dvoGetType(&currDvoSource);
-	printf("Initial DVO Source: ");
+	// Step 11: Set Lut Mode
+	printf("Set Lut Mode: ");
+	FLR_COLORLUT_ID_E set_lut_data = 7;
+	result = colorLutSetId(set_lut_data);
 	if (result)
 	{
-		printf("Failed DVO with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf("Result: 0x%08X -- Value: 0x%08X \n", result, currDvoSource);
-	printf("Change Source: ");
-	result = dvoSetType(dvo16Bit);
-	// result = dvoSetType(dvo8Bit);
-	if (result)
-	{
-		printf("Failed DVO with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf("0x%08X\n", result);
-	printf("SUCCESS\n\n");
-
-	// Step 4: Get Camera Software Version
-	uint32_t major, minor, patch;
-	printf("SoftwareRev: ");
-	result = bosonGetSoftwareRev(&major, &minor, &patch);
-	if (result)
-	{
-		printf("Failed SoftwareRev with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf("%u.%u.%u \n", major,minor,patch);
-	printf("SUCCESS\n\n");
-
-	// Step 5: Get Sensor Part Number
-	FLR_BOSON_SENSOR_PARTNUMBER_T part_num;
-	printf("PartNum: ");
-	result = bosonGetSensorPN(&part_num);
-	if (result)
-	{
-		printf("Failed SensorPN with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf(" \"%s\"", part_num.value);
-	for (idx=0; idx<sizeof(part_num); idx++)
-	{
-		uint8_t tempchar = part_num.value[idx];
-		if ( !(idx%16) )
-			printf("\n\t");
-		if (tempchar>=32 && tempchar<=125)
-		{
-			printf(" \"%c\"",tempchar);
-		}
-		else
-		{
-			printf("  %02X",tempchar);
-		}
-	}
-	printf("\nSUCCESS\n\n");
-
-	// Step 6: Read data from Camera Flash
-	uint8_t data[256];
-	printf("Capture Data[0:255]: ");
-	//       memReadCapture(index, offset, num_bytes, empty_data_buffer);
-	result = memReadCapture(0, 0, 256, data);
-	if (result)
-	{
-		printf("Failed memRead with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf(" -- ");
-	for (idx=0; idx<256; idx++)
-	{
-		if ( !(idx%16) )
-			printf("\n\t");
-		printf("  %02X",data[idx]);
-	}
-	printf("\nSUCCESS\n\n");
-
-	// Step 7: Get the current frame count
-	uint32_t frameNum;
-	printf("Current Frame Number: ");
-	result = roicGetFrameCount(&frameNum);
-	if (result)
-	{
-		printf("Failed FrameCount with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf("%u\n", frameNum);
-	printf("SUCCESS\n\n");
-
-
-	// Step 8: Set FFC Mode to Manual and back again
-	FLR_BOSON_FFCMODE_E currMode;
-	FLR_BOSON_FFCMODE_E manualFfcMode = FLR_BOSON_MANUAL_FFC;
-	FLR_BOSON_FFCMODE_E autoFfcMode = FLR_BOSON_AUTO_FFC;
-	printf("Current FFCMode: ");
-	result = bosonGetFFCMode(&currMode);
-	if (result)
-	{
-		printf("Failed getFFCMode with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf("%d \n", currMode);
-	printf("FFCMode Changed to: ");
-	result = bosonSetFFCMode(manualFfcMode);
-	// result = bosonSetFFCMode(autoFfcMode);
-	if (result)
-	{
-		printf("Failed setFFCMode with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf("%d \n", manualFfcMode);
-	printf("Read FFCMode Again: ");
-	result = bosonGetFFCMode(&currMode);
-	if (result)
-	{
-		printf("Failed getFFCMode with status 0x%08X, exiting.\n",result);
-		Close();
-		return 1;
-	}
-	printf("%d \n", currMode);
-	printf("SUCCESS\n\n");
-
-	// Step 9: Run a Flat Field Correction on the Camera
-	// Sidenote: FFC can be manually triggered from any FFCMode
-	result = bosonRunFFC();
-	printf("RunFFC: ");
-	if (result)
-	{
-		printf("Failed FFC with status 0x%08X, exiting.\n",result);
+		printf("Failed Lut Mode with status %d, exiting.\n",result);
 		Close();
 		return 1;
 	}
 	printf("0x%08X \n", result);
 	printf("SUCCESS\n\n");
 
-	// Step 10: Get Gain Mode
-	printf("Get Gain Mode: ");
-	FLR_BOSON_GAINMODE_E currGain;
-	result = bosonGetGainMode(&currGain);
+	// Step 12: Save stuff
+	printf("Save stuff: ");
+	result = bosonWriteDynamicHeaderToFlash();
 	if (result)
 	{
-		printf("Failed Gain Mode with status %d, exiting.\n",result);
+		printf("Failed Lut Mode with status %d, exiting.\n",result);
 		Close();
 		return 1;
 	}
